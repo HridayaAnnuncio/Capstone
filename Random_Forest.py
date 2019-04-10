@@ -8,8 +8,6 @@ Created on Thu Mar 14 14:47:37 2019
 
 # Random Forest Classification
 # Importing the libraries
-import numpy as np
-import matplotlib.pyplot as plt
 import pandas as pd
 
 # Importing the dataset
