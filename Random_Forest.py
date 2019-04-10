@@ -46,8 +46,8 @@ cm = confusion_matrix(y_test, y_pred)
 
 
 
-
-
+"""
+#\
 # Fitting SVM to the Training set
 from sklearn.svm import SVC
 classifier = SVC(kernel = 'linear', random_state = 0)
@@ -97,7 +97,7 @@ cm3 = confusion_matrix(y_test, y_pred)
 
 
 
-
+"""
 
 
 
