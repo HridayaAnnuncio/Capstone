@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+      <style>
+         @import url('https://fonts.googleapis.com/css?family=Roboto');
+         *{
+         box-sizing: border-box;
+         margin: 0;
+         padding: 0;
+         }
+         body{
+         font-family: 'Roboto', sans-serif;
+         font-size: 16px;
+         }
+         .pagewrap{
+         background:url({{ url_for('static', filename='img/img.jpg')}});
+         background-size: cover;
+         max-width: 100%;
+         min-height: 100vh;
+         position: relative;
+         z-index: 1;
+         }
+         .pagewrap-overlay{
+         background-color: #c92;
+         position: absolute;
+         z-index: -1;
+         top:0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         opacity: 0.8;
+         }
+         .content{
+         width: 600px;
+         margin: 0 auto;
+         padding: 10vh 0;
+         }
+         header{
+         background-color: white;
+         width : 100%;
+         height: 150px;
+         text-align: center;
+         position: relative;
+         }
+         header:after{
+         content: "";
+         position: absolute;
+         bottom: -11px;
+         left: 0;
+         width: 100%;
+         height: 30px;
+         background-color: white;
+         z-index: 1;
+         }
+         header h1{
+         text-transform: uppercase;
+         font-size: 40px;
+         letter-spacing: 2px;
+         font-weight:700;
+         }
+         .header-content{
+         position: absolute;
+         top: 55%;
+         left: 50%;
+         transform: translate(-50%,-50%);
+         }
+         .storm_details{
+         font-weight: 500;
+         }
+         section{
+         background:url({{ url_for('static', filename='img/img.jpg') }}); `
+         background-size: cover;
+         position: relative;
+         height: 398px;
+         }
+         form{
+         margin:0 auto;
+         max-width: 100%;
+         background-color: #222;
+         height: 100%;
+         opacity: 0.8;
+         padding: 60px 0;
+         box-shadow: 0 19px 38px
+         rgba(0,0,0,0.30), 0 15px 12px
+         rgba(0,0,0,0.22);
+         }
+         input{
+         display: block;
+         width: 70%;
+         height: 60px;
+         background: transparent;
+         border: 1px solid #555;
+         border-radius: 5px;
+         margin: 0 auto;
+         font-size: 18px;
+         color: white;
+         letter-spacing: 2px;
+         padding-left: 20px;
+         margin-top: 20px;
+         }
+         ::-webkit-input-placeholder{
+         color: white;
+         }
+         button{
+         background: linear-gradient(to right, #fa1, #fc1);
+         width: 30%;
+         height: 65px;
+         border: none;
+         border-radius: 5px;
+         margin: 0 auto;
+         font-size: 15px;
+         color: white;
+         letter-spacing: 3px;
+         text-transform: uppercase;
+         display: block;
+         font-weight: 500;
+         position: relative;
+         top: 15px;
+         box-shadow: 0 19px 38px
+         rgba(0,0,0,0.30), 0 15px 12px
+         rgba(0,0,0,0.22);
+         cursor: pointer;
+         }
+         button:hover {
+         background: white;
+         color: black;
+         }
+         .prediction{
+         margin:50px 200px 0px 200px;
+         }
+         .services-section{
+         padding-bottom: 60px;
+         padding-top: 5px;
+         padding-right: 0;
+         padding-left: 0;
+         }
+         .inner-width{
+         width: 100%;
+         max-width: 1200px;
+         margin: auto;
+         padding: 0 20px;
+         overflow: hidden;
+         }
+         .section-title{
+         text-align: center;
+         color: #c92;
+         text-transform: uppercase;
+         font-size: 30px;
+         }
+         .border{
+         width: 160px;
+         height: 2px;
+         background: #c92;
+         margin: 40px auto;
+         }
+         .services-container{
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: center;
+         }
+         .service-box{
+         max-width: 33.33%;
+         padding: 10px;
+         text-align: center;
+         color: #222;
+         cursor: pointer;
+         }
+         .service-icon{
+         display: inline-block;
+         width: 70px;
+         height: 70px;
+         border: 3px solid #c92;
+         color: #222;
+         transform: rotate(45deg);
+         margin-bottom: 30px;
+         margin-top: 16px;
+         transition: 0.3s linear;
+         }
+         .service-icon i{
+         line-height: 70px;
+         transform: rotate(-45deg);
+         font-size: 26px;
+         }
+         .service-box:hover .service-icon{
+         background: #222;
+         color: #c92;
+         opacity: 0.8;
+         }
+         .service-title{
+         font-size: 18px;
+         text-transform: uppercase;
+         margin-bottom: 10px;
+         }
+         .service-desc{
+         font-size: 14px;
+         }
+         .text{
+         margin-top: 5px;
+         }
+         @media screen and (max-width:960px) {
+         .service-box{
+         max-width: 45%;
+         }
+         }
+         @media screen and (max-width:768px) {
+         .service-box{
+         max-width: 50%;
+         }
+         }
+         @media screen and (max-width:480px) {
+         .service-box{
+         max-width: 100%;
+         }
+         }
+         @import url(https://fonts.googleapis.com/css?family=Lato);
+         
+         footer{
+         background: #dedede;
+         padding: 20px;
+         }
+
+         footer h4{
+         font-style:'Lato',sans-serif;
+         color: #c92;
+         margin-bottom: 10px;
+         }
+
+         .container a {
+         color: #333;
+         }
+           
+         .container i:hover {
+         transform: scale(1.1);
+         }
+
+         .container i {
+         transform: scale(0.8);
+         transition-duration: 0.5s;
+         }
+
+         .container i:hover {
+         color: #f39c12;
+         }
+
+         .res{    
+         height: 6vh;
+         opacity: 0.8;
+         }  
+
+         @keyframes example {
+ 		0%   {background-color: red;}
+  		25%  {background-color: yellow;}
+  		50%  {background-color: blue;}
+  		100% {background-color: green;}
+		 }
+		#main {
+     	background-color: red;
+     	animation-name: example;
+     	animation-duration: 6s;
+     	animation-iteration-count: infinite;
+     	}	
+
+
+      </style>
+      <title>Storm Classifier</title>
+   </head>
+   <body>
+      <div class="pagewrap">
+         <div class="pagewrap-overlay" id="main">
+            <div class="content">
+               <header>
+                  <div class="header-content">
+                     <h1><span class="storm-details">Classifier</span>
+                     </h1>
+                  </div>
+               </header>
+               <section>
+                  <form action="{{ url_for('main') }}" method="POST">
+                     <div class="input">
+                        <input name="latitude" type="number" placeholder="Latitude" step="0.01" required>
+                     </div>
+                     <div class="input">
+                        <input name="longitude" type="number" placeholder = "Longitude"step="0.01" required>
+                     </div>
+                     <div class="input">
+                        <input name="sustainedwinds" type="number" placeholder="Sustained Winds" step="0.01" required>
+                     </div>
+                     <button type="submit" class= "button btn" name="classify">Classify</button>
+                  </form>
+               </section>
+            </div>
+         </div>
+      </div>
+      <div class="prediction" align="center">
+      <div class="res">
+         {% if result %}
+         {% for variable, value in original_input.items() %}
+         <b>{{ variable }}</b> : {{ value }}
+         {% endfor %}
+         <br>
+         <br> Predicted kind of Storm:
+         <p class="result" style="font-size:50px">{{ result }}</p>
+         {% endif %}
+      </div>
+      <br><br>
+      <div class="services-section">
+         <div class="inner-width">
+            <div class="border"></div>
+            <div class="services-container">
+               <div class="service-box">
+                  <div class="service-icon">
+                     <i class="fas fa-cloud-showers-heavy"></i>
+                  </div>
+                  <div class="service-title">0.0</div>
+                  <div class="service-desc">
+                     <h2>Disturbance</h2>
+                     <p class="text">The birth of a hurricane, having only a slight circulation with no closed isobars around an area of low pressure. Tropical disturbances commonly exist in the tropical trade winds at any one time and are often accompanied by clouds and precipitation.</p>
+                  </div>
+               </div>
+               <div class="service-box">
+                  <div class="service-icon">
+                     <i class="fas fa-cloud-sun-rain"></i>
+                  </div>
+                  <div class="service-title">1.0</div>
+                  <div class="service-desc">
+                     <h2>Extratropical cyclone</h2>
+                     <p class="text">They are low-pressure areas which, along with the anticyclones of high-pressure areas, drive the weather over much of the Earth. They are tropical disturbance in which the maximum of the average wind speed is estimated to be in the range 64 to 89 knots (118 to 165 km/h, force 12 in the Beaufort scale).</p>
+                  </div>
+               </div>
+               <div class="service-box">
+                  <div class="service-icon">
+                     <i class="fas fa-water"></i>
+                  </div>
+                  <div class="service-title">2.0</div>
+                  <div class="service-desc">
+                     <h2>Hurricane</h2>
+                     <p class="text">As surface pressures continue to drop, a tropical storm becomes a hurricane when sustained wind speeds exceed 64 knots. A pronounced rotation develops around the central core as spiral rain bands rotate around the eye of the storm. The heaviest precipitation and strongest winds are associated with the eye wall.</p>
+                  </div>
+               </div>
+               <div class="service-box">
+                  <div class="service-icon">
+                     <i class="fas fa-bolt"></i>
+                  </div>
+                  <div class="service-title">3.0</div>
+                  <div class="service-desc">
+                     <h2>Low</h2>
+                     <p class="text"> Region of the atmosphere in which the pressures are lower than those of the surrounding region at the same level and where the cloud masses do not appear to be organized.A low is neither a tropical cyclone, a subtropical cyclone, nor an extratropical cyclone</p>
+                  </div>
+               </div>
+               <div class="service-box">
+                  <div class="service-icon">
+                     <i class="fas fa-cloud"></i>
+                  </div>
+                  <div class="service-title">4.0</div>
+                  <div class="service-desc">
+                     <h2>Tropical Depression</h2>
+                     <p class="text">If sustained winds increase to at least 20 knots, a disturbance is upgraded to a tropical depression. Surface wind speeds vary between 20 and 34 knots and a tropical depression has at least one closed isobar that accompanies a drop in pressure in the center of the storm.</p>
+                  </div>
+               </div>
+               <div class="service-box">
+                  <div class="service-icon">
+                     <i class="fas fa-wind"></i>
+                  </div>
+                  <div class="service-title">5.0</div>
+                  <div class="service-desc">
+                     <h2>Tropical Storm</h2>
+                     <p class="text">If sustained wind speeds increase to at least 35 knots, a tropical depression is upgraded to a tropical storm. Surface wind speeds vary between 35 and 64 knots and the storm becomes more organized. Tropical storms resemble the appearance of hurricanes due to the intensified circulation.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      </div>
+
+      <footer align="center">
+         <div class="container">
+               <h4 class="txt">Want to collaborate?</h4>
+               <a href="https://github.com/HridayaAnnuncio/Capstone.git"><i class="fab fa-github-square fa-3x"></i></a>
+         </div>
+      </footer>
+   </body>
+</html>
