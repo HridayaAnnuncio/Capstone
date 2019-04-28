@@ -1,5 +1,5 @@
 Flask
-numpy==1.16.0
-pandas==0.23.4
+numpy
+pandas
 Sklearn
 
