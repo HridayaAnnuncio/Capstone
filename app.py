@@ -19,8 +19,8 @@ def main():
                                        dtype=float)
         prediction = model.predict(input_variables)[0]
         return flask.render_template('main.html',
-                                     original_input={'Latitude':latitude + "°",
-                                                     'Longitude':longitude+ "°",
+                                     original_input={'Latitude':latitude,
+                                                     'Longitude':longitude,
                                                      'Sustained Winds':sustained_winds+ " Knots"},
                                      result=prediction,
                                      )
